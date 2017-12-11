@@ -1,3 +1,5 @@
+from itertools import combinations
+
 input = """
 790 99  345 1080  32  143 1085  984 553 98  123 97  197 886 125 947
 302 463 59  58  55  87  508 54  472 63  469 419 424 331 337 72
@@ -17,7 +19,7 @@ input = """
 3928  107 3406  123 2111  2749  223 125 134 146 3875  1357  508 1534  4002  4417
 """
 
-def get_checksum(input):
+def solve_part1(input):
   input = input.strip()
   sum = 0
   for line in input.split("\n"):
@@ -27,4 +29,19 @@ def get_checksum(input):
     sum += (max_num - min_num)
   return sum
 
-print(get_checksum(input))
+# print(solve_part1(input))
+
+def get_divisible(nums):
+  for divisor, dividend in combinations(sorted(nums), 2):
+    if dividend % divisor == 0:
+      return (dividend, divisor)
+
+def solve_part2(input):
+  input = input.strip()
+  sum = 0
+  for line in input.split("\n"):
+    dividend, divisor = get_divisible([int(x) for x in line.split()])
+    sum += dividend / divisor
+  return sum
+
+print(solve_part2(input))
