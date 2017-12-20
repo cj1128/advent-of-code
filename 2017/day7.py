@@ -1691,7 +1691,7 @@ def solve_part2(input):
   root = build_tree(input)
   cur = root
   print_weight(cur)
-  # through above info, we know first child is wront
+  # through above info, we know first child is wrong
   cur = cur["children"][0]
   print_weight(cur)
   # first child is wrong
