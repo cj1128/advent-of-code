@@ -64,3 +64,4 @@ def solve_part2(input):
 # for t in part2_tests:
   # print(solve_part2(t[0]) == t[1])
 print(solve_part2(input[1]))
+# 62e2204d2ca4f4924f6e7a80f1288786
