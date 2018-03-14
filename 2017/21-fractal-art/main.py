@@ -113,7 +113,6 @@ input = """
 ###/###/### => .###/###./#.##/..#.
 """
 
-# 注意要变换为标准形式
 part1_test = ("""
 .#/.. => ##./#../...
 ###/..#/.#. => #..#/..../..../#..#
@@ -210,5 +209,5 @@ def solve_part1(input, count):
 # print(solve_part1(input, 5))
 # 133
 
-print(solve_part1(input, 18))
+# print(solve_part1(input, 18))
 # 2221990
