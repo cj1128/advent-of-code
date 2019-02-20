@@ -60,8 +60,6 @@ set a 1
 jgz a -2
 """, 4)
 
-ins_regexp = re.compile(r"(\w{3}) (\w)(?: (\d+))?")
-
 def parse_ins(ins):
   operation, left, right, *_ = ins.split(" ") + [None]
   try:
