@@ -1,5 +1,5 @@
 use std::collections::HashSet;
-use std::io::{self, Read, Write};
+use std::io::{self, Read};
 
 type Result<T> = ::std::result::Result<T, Box<dyn ::std::error::Error>>;
 
@@ -21,7 +21,7 @@ fn part1(input: &str) -> Result<()> {
     freq += change;
   }
 
-  writeln!(io::stdout(), "part 1: {}", freq)?;
+  println!("part 1: {}", freq);
   Ok(())
 }
 
@@ -36,7 +36,7 @@ fn part2(input: &str) -> Result<()> {
       freq += change;
 
       if seen.contains(&freq) {
-        writeln!(io::stdout(), "part 2: {}", freq)?;
+        println!("part 2: {}", freq);
         return Ok(());
       }
 

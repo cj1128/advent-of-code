@@ -5,7 +5,7 @@ extern crate regex;
 use regex::Regex;
 use std::collections::HashMap;
 use std::error::Error;
-use std::io::{self, Read, Write};
+use std::io::{self, Read};
 use std::str::FromStr;
 
 type Result<T> = ::std::result::Result<T, Box<dyn Error>>;
@@ -43,14 +43,14 @@ fn main() -> Result<()> {
 
 fn part1(grid: &Grid) -> Result<()> {
   let count = grid.values().filter(|&&count| count > 1).count();
-  writeln!(io::stdout(), "part 1: {}", count)?;
+  println!("part 1: {}", count);
   Ok(())
 }
 
 fn part2(claims: &[Claim], grid: &Grid) -> Result<()> {
   for claim in claims {
     if claim.iter_points().all(|p| grid[&p] == 1) {
-      write!(io::stdout(), "part 2: {}", claim.id)?;
+      println!("part 2: {}", claim.id);
       return Ok(());
     }
   }
@@ -110,13 +110,13 @@ impl FromStr for Claim {
     lazy_static! {
       static ref RE: Regex = Regex::new(
         r"(?x)
-                \#
-                (?P<id>\d+)
-                \s+@\s+
-                (?P<x>\d+),(?P<y>\d+):
-                \s+
-                (?P<width>\d+)x(?P<height>\d+)
-            "
+          \#
+          (?P<id>\d+)
+          \s+@\s+
+          (?P<x>\d+),(?P<y>\d+):
+          \s+
+          (?P<width>\d+)x(?P<height>\d+)
+        "
       )
       .unwrap();
     }

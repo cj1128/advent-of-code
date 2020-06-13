@@ -1,4 +1,4 @@
-use std::io::{self, Read, Write};
+use std::io::{self, Read};
 
 type Result<T> = ::std::result::Result<T, Box<dyn ::std::error::Error>>;
 
@@ -39,7 +39,7 @@ fn part1(input: &str) -> Result<()> {
     }
   }
 
-  writeln!(io::stdout(), "part 1: {}", twos * threes)?;
+  println!("part 1: {}", twos * threes);
 
   Ok(())
 }
@@ -50,7 +50,7 @@ fn part2(input: &str) -> Result<()> {
   for i in 0..ids.len() {
     for j in i + 1..ids.len() {
       if let Some(common) = common_correct_chars(ids[i], ids[j]) {
-        writeln!(io::stdout(), "part 2: {}", common)?;
+        println!("part 2: {}", common);
         return Ok(());
       }
     }
