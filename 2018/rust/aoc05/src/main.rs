@@ -58,6 +58,7 @@ fn react(polymer_str: &str) -> String {
       i += 1;
     }
 
+    // The last two chars doesn't react
     if i == polymer.len() - 1 {
       reacted_polyer.push(polymer[i]);
     }
